@@ -1,9 +1,11 @@
+/*
+ Implement a function called multiply, which takes two numbers and returns their product:
+*/
+
 import Foundation
 
-var number = 54321
-
-func digitize(_ number:Int) -> [Int] {
-    return String(number).reversed().map { Int(String($0))! }
+func multiply(_ a: Int, _ b: Int) -> Int {
+    return a * b
 }
 
-digitize(number)
+multiply(2, 3)
