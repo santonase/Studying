@@ -1,32 +1,18 @@
 /*
- Calculate BMI
 
- Write function bmi that calculates body mass index (bmi = weight / height2).
+ Given an array of integers, return a new array with each value doubled.
 
- if bmi <= 18.5 return "Underweight"
+ For example:
 
- if bmi <= 25.0 return "Normal"
+ [1, 2, 3] --> [2, 4, 6]
 
- if bmi <= 30.0 return "Overweight"
-
- if bmi > 30 return "Obese"
- 
 */
 
+var a: [Int] = [1, 2, 3]
 
-func calculateBmi(_ weight: Int, _ height: Double) -> String {
-    let bmi = Double(weight) / (height * height)
-    
-    if bmi <= 18.5 {
-        return "Underweight"
-    } else if bmi <= 25.0 {
-        return "Normal"
-    } else if bmi <= 30.0 {
-        return "Overweight"
-    } else if bmi > 30 {
-        return "Obese"
-    }
-    return String(bmi)
+func maps(a : Array<Int>) -> Array<Int> {
+        var doubleNumbers: [Int] = []
+    doubleNumbers = a.map {$0 * 2}
+        return doubleNumbers
 }
 
-calculateBmi(100, 1.90)
