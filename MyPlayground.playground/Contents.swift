@@ -1,18 +1,15 @@
 /*
+ Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
- Given an array of integers, return a new array with each value doubled.
-
- For example:
-
- [1, 2, 3] --> [2, 4, 6]
-
+ For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 */
 
-var a: [Int] = [1, 2, 3]
-
-func maps(a : Array<Int>) -> Array<Int> {
-        var doubleNumbers: [Int] = []
-    doubleNumbers = a.map {$0 * 2}
-        return doubleNumbers
+func squareSum(_ vals: [Int]) -> Int {
+    let doubleNumbers = vals.map {$0 * $0}
+    let sum = abs(doubleNumbers.reduce(0,+))
+    return sum
 }
+
+squareSum([10, 20, 20])
+
 
