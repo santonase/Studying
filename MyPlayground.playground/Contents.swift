@@ -1,36 +1,48 @@
-/**
- FUNCTIONS - LESSON 9
- */
+//lesson 9 - Switch
 
-func person(_ name: String, _ work: String, _ days: Int) {
-    print("My name is \(name), I work in \(work), I have \(days) days of vocation")
+import UIKit
+
+var str = "Hello"
+
+if true {
+     
+} else {
+    
 }
 
-person("Sviatoslav", "Procard", 14)
+var integer = 100
 
-
-func person2(_ name: String, _ work: String = "engineer", _ days: Int = 7) {
-    print("My name is \(name), I work an \(work), I have \(days) days of vocation")
+switch integer {
+case 0...2: print("little")
+case 3...10: print("few")
+case 11...100: print("too much")
+case 101...1000: print("hundreds")
+default: print("another value = \(integer)")
 }
 
-person2("Sviatoslav")
 
-func sum1(_ val1: String, _ val2: String) {
-    let sum = (Int(val1) ?? 0) + (Int(val2) ?? 0)
-    print(sum)
+let someCharacter = "x"
+
+switch someCharacter {
+case "a", "e", "i", "o", "u": print("glasna")
+case "b", "c", "d": print("soglasna")
+default: print("i don't know this letter")
 }
 
-sum1("3", "4")
 
-func sum2(_ val1: Float, _ val2: Float) -> Float {
-    return val1 + val2
+let point = (0,33)
+
+switch point {
+case (let x, 0): print("точка на осі Х - \(x)")
+case (0, let y): print("точка на осі У - \(y)")
+case (let x, let y) where x==y: print("точка десь у просторі X - \(x), y - \(y)")
+case (_, _): print("default value")
 }
 
-sum2(3, 5)
 
-func sum3(_ val1: Int, _ val2: Int) -> Int {
-    return val1 + val2
+switch point {
+case (let x, 0), (0, let x): print("відстань \(x)")
+case (let x, let y): print("точка десь в просторі Х = \(x), Y = \(y)")
 }
 
-sum3(10, 10)
 
