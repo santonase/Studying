@@ -2,47 +2,38 @@
 
 import UIKit
 
-var str = "Hello"
+var numbers: [Int] = [1, 1, 3, 5, 5, 6, 7]
 
-if true {
-     
-} else {
+var index = 0
+
+label: while index < 3 {
     
+for number in numbers {
+    if number % 2 == 0 {
+        break label
+    }
+        print(number)
 }
-
-var integer = 100
-
-switch integer {
-case 0...2: print("little")
-case 3...10: print("few")
-case 11...100: print("too much")
-case 101...1000: print("hundreds")
-default: print("another value = \(integer)")
-}
-
-
-let someCharacter = "x"
-
-switch someCharacter {
-case "a", "e", "i", "o", "u": print("glasna")
-case "b", "c", "d": print("soglasna")
-default: print("i don't know this letter")
+    print("end of the loop")
+    
+    index += 1
 }
 
 
-let point = (0,33)
 
-switch point {
-case (let x, 0): print("точка на осі Х - \(x)")
-case (0, let y): print("точка на осі У - \(y)")
-case (let x, let y) where x==y: print("точка десь у просторі X - \(x), y - \(y)")
-case (_, _): print("default value")
+
+
+let numberToDescribe = 6
+
+var resultString = "Number \(numberToDescribe) is "
+
+
+switch numberToDescribe {
+case 2, 3, 5, 7, 11, 13, 17, 19:
+    resultString += "prime number and also "
+    fallthrough
+default:
+    resultString += "an integer"
 }
 
-
-switch point {
-case (let x, 0), (0, let x): print("відстань \(x)")
-case (let x, let y): print("точка десь в просторі Х = \(x), Y = \(y)")
-}
-
-
+print(resultString)
