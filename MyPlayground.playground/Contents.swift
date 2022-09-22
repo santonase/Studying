@@ -1,39 +1,40 @@
-//lesson 9 - Switch
+//lesson 16 - closure (BW)
 
-import UIKit
+func add(a: Int, b: Int) -> Int {
+    return a + b
+}
 
-var numbers: [Int] = [1, 1, 3, 5, 5, 6, 7]
+var addVar: (Int, Int) -> Int = { $0 + $1 }
 
-var index = 0
+addVar(5,3)
 
-label: while index < 3 {
-    
-for number in numbers {
-    if number % 2 == 0 {
-        break label
+func myFunc(a: Int, b: Int, mathFunc: (Int, Int) -> Int) {
+    let result = mathFunc(a,b)
+    print(result)
+}
+
+myFunc(a: 5, b: 3, mathFunc: { $0 - $1 })
+myFunc(a: 5, b: 3) { $0 - $1 }
+
+func autoClosureFunc(isOk:Bool, closure: @autoclosure () -> Int) {
+    if isOk {
+        closure()
+    } else {
+        print("sorry")
     }
+}
+
+autoClosureFunc(isOk: true, closure: 2 )
+
+var integer = 5
+var someClosure = { [number = integer] in
         print(number)
 }
-    print("end of the loop")
-    
-    index += 1
-}
 
+someClosure()
 
+integer += 1
 
+someClosure()
 
-
-let numberToDescribe = 6
-
-var resultString = "Number \(numberToDescribe) is "
-
-
-switch numberToDescribe {
-case 2, 3, 5, 7, 11, 13, 17, 19:
-    resultString += "prime number and also "
-    fallthrough
-default:
-    resultString += "an integer"
-}
-
-print(resultString)
+print(integer)
