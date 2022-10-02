@@ -1,40 +1,41 @@
-//lesson 16 - closure (BW)
-
-func add(a: Int, b: Int) -> Int {
-    return a + b
-}
-
-var addVar: (Int, Int) -> Int = { $0 + $1 }
-
-addVar(5,3)
-
-func myFunc(a: Int, b: Int, mathFunc: (Int, Int) -> Int) {
-    let result = mathFunc(a,b)
-    print(result)
-}
-
-myFunc(a: 5, b: 3, mathFunc: { $0 - $1 })
-myFunc(a: 5, b: 3) { $0 - $1 }
-
-func autoClosureFunc(isOk:Bool, closure: @autoclosure () -> Int) {
-    if isOk {
-        closure()
-    } else {
-        print("sorry")
+class Phone {
+    var number: Int
+    var model: String
+    var weight: Double
+    var name: String
+    
+    init(number: Int, model: String, weight: Double, name: String) {
+        self.number = number
+        self.model = model
+        self.weight = weight
+        self.name = name
+    }
+    
+    func receiveCall(name: String = "") {
+        print("\(self.name) is calling")
+    }
+    
+    func getNumber(number: Int = 0) {
+        print("Number: \(self.number)")
     }
 }
 
-autoClosureFunc(isOk: true, closure: 2 )
 
-var integer = 5
-var someClosure = { [number = integer] in
-        print(number)
+let phoneFirst = Phone(number: 067_000_1111, model: "iPhone", weight: 0.200, name: "Bob")
+let phoneSecond = Phone(number: 067_000_2222, model: "iPhone Pro", weight: 0.210, name: "Alice")
+
+phoneFirst.receiveCall()
+phoneFirst.getNumber()
+
+let array: [Phone] = [phoneFirst, phoneSecond]
+
+var index = 0
+for i in array {
+    index += 1
+    print("\(index), \(i.receiveCall()),\(i.getNumber())")
 }
 
-someClosure()
 
-integer += 1
 
-someClosure()
 
-print(integer)
+
